@@ -1,0 +1,26 @@
+adventure\
+	__init__.py
+	main.py
+	adventure.py
+	levels\
+		__init__.py
+		error.py
+		level0.py
+		level1.py
+	objects\
+		__init__.py
+		base.py
+		items.py
+		player.py
+	screens\
+		__init__.py
+		gamescreen.py
+		titlescreen.py
+	sprites\
+		__init__.py
+		sprites.py
+	misc\
+		__init__.py
+		config.py
+		constants.py
+		util.py

@@ -1,0 +1,17 @@
+	* TODO *
+
+  Implement Jeremy -Ken
+
+X Make "Thing" have move methods + a speed variable to allow floating point speeds for objects
+
+  Figure out Dragon behavior
+
+X Implement room change triggers
+X 	Add methods to "screen"s to add room changing on sides
+
+  Begin copying first level from game!
+
+  Make item super class
+   
+  Make objects able to hold items
+   	Player can drop items

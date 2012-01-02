@@ -1,0 +1,2 @@
+import adventure
+adventure.Game()
