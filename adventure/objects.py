@@ -1,4 +1,3 @@
-
 import pygame
 from pygame.locals import *
 
@@ -70,7 +69,7 @@ class Thing:
         if self.hitting_wall():
             self.rect.x -= 1
             if self.holding:
-                self.holding.x -= 1
+                self.holding.rect.x -= 1
     
     def left(self):
         self.xmove_tick += self.speed
@@ -83,7 +82,7 @@ class Thing:
         if self.hitting_wall():
             self.rect.x += 1
             if self.holding:
-                self.holding.x += 1
+                self.holding.rect.x += 1
     
     def down(self):
         self.ymove_tick += self.speed
@@ -96,7 +95,7 @@ class Thing:
         if self.hitting_wall():
             self.rect.y -= 1
             if self.holding:
-                self.holding.y -= 1
+                self.holding.rect.y -= 1
     
     def up(self):
         self.ymove_tick += self.speed
@@ -109,7 +108,7 @@ class Thing:
         if self.hitting_wall():
             self.rect.y += 1
             if self.holding:
-                self.holding.y += 1
+                self.holding.rect.y += 1
     
     def check_collisions(self):
         for obj in self.parent.objects:
@@ -137,9 +136,16 @@ class Thing:
         
         elif issubclass(obj.__class__, Item):
             print'pickup!', obj, obj.holdable
-            if self.holding == None and obj.holdable:
+            if obj.holdable:
                 self.holding = obj
-                obj.holdable = 0
+                if self.rect.x > obj.rect.x:
+                    obj.rect.x -= 1
+                else:
+                    obj.rect.x += 1
+                if self.rect.y > obj.rect.y:
+                    obj.rect.y -= 1
+                else:
+                    obj.rect.y += 1
 
 class Trigger(Thing):
     def __init__(self, game, **kargs):
