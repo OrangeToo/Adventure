@@ -1,4 +1,3 @@
-
 import pygame
 from pygame.locals import *
 
@@ -70,7 +69,7 @@ class Thing:
         if self.hitting_wall():
             self.rect.x -= 1
             if self.holding:
-                self.holding.x -= 1
+                self.holding.rect.x -= 1
     
     def left(self):
         self.xmove_tick += self.speed
@@ -83,7 +82,7 @@ class Thing:
         if self.hitting_wall():
             self.rect.x += 1
             if self.holding:
-                self.holding.x += 1
+                self.holding.rect.x += 1
     
     def down(self):
         self.ymove_tick += self.speed
@@ -96,7 +95,7 @@ class Thing:
         if self.hitting_wall():
             self.rect.y -= 1
             if self.holding:
-                self.holding.y -= 1
+                self.holding.rect.y -= 1
     
     def up(self):
         self.ymove_tick += self.speed
@@ -109,7 +108,7 @@ class Thing:
         if self.hitting_wall():
             self.rect.y += 1
             if self.holding:
-                self.holding.y += 1
+                self.holding.rect.y += 1
     
     def check_collisions(self):
         for obj in self.parent.objects:
